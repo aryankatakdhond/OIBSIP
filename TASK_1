@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Tuition Classes</title>
+    <style>
+        :root {
+            --bg: #f5efe6;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #607080;
+            --accent: #d97706;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #fffaf2, var(--bg));
+        }
+        .wrap {
+            width: min(1100px, calc(100% - 16px));
+            margin: 0 auto;
+            padding: 12px 0 20px;
+        }
+        .hero,
+        .section,
+        .box {
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: 0 10px 28px rgba(31, 41, 55, 0.08);
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 14px;
+            padding: 18px;
+        }
+        .section {
+            margin-top: 12px;
+            padding: 18px;
+        }
+        .section-title {
+            margin: 10px 0 6px;
+        }
+        .right {
+            display: grid;
+            gap: 12px;
+            padding: 14px;
+            background: linear-gradient(160deg, #1f2937, #374151);
+            color: #ffffff;
+        }
+        .photo {
+            overflow: hidden;
+            padding: 0;
+        }
+        .photo img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .photo p {
+            padding: 12px 14px 14px;
+        }
+        .box {
+            padding: 14px;
+            border: 1px solid rgba(31, 41, 55, 0.08);
+            background: #fffdf8;
+        }
+        .right .box {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .tag {
+            display: inline-block;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(217, 119, 6, 0.12);
+            color: #b45309;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        h1,
+        h2,
+        h3,
+        p,
+        ul{
+            margin: 0;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.7rem);
+            line-height: 1;
+            margin: 12px 0;
+        }
+        p {
+            color: var(--muted);
+            line-height: 1.65;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .btn {
+            padding: 11px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .primary {
+            background: var(--accent);
+            color: #ffffff;
+        }
+        .secondary {
+            border: 1px solid #d7dce1;
+            color: var(--text);
+        }
+        .stats,
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .box strong {
+            display: block;
+            color: var(--accent);
+            font-size: 1.35rem;
+            margin-bottom: 4px;
+        }
+        li {
+            margin-left: 18px;
+            line-height: 1.7;
+            color: inherit;
+        }
+        footer {
+            text-align: center;
+            padding: 14px 0 0;
+            color: var(--muted);
+        }
+        @media (max-width: 900px) {
+            .hero,
+            .stats,
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 560px) {
+            .wrap {
+                width: min(100% - 12px, 1100px);
+            }
+            .hero,
+            .section {
+                padding: 14px;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <section class="hero">
+            <div>
+                <span class="tag">Impact Tuition Classes</span>
+                <h1>Learn better. Score higher.</h1>
+                <p>Simple, focused tuition for school students with clear teaching, regular practice, and personal attention.</p>
+                <div class="buttons">
+                    <a class="btn primary" href="#programs">Programs</a>
+                    <a class="btn secondary" href="#contact">Contact</a>
+                </div>
+                <div class="stats">
+                    <div class="box"><strong>12+</strong>Years</div>
+                    <div class="box"><strong>500+</strong>Students</div>
+                    <div class="box"><strong>1:10</strong>Batch size</div>
+                </div>
+            </div>
+            <aside class="right">
+                <div class="box photo">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Students studying in a classroom">
+                    <p>Focused learning in a calm classroom environment.</p>
+                </div>
+                <div class="box">
+                    <h2>Why choose us</h2>
+                    <ul>
+                        <li>Concept-based teaching</li>
+                        <li>Weekly tests and worksheets</li>
+                        <li>Personal doubt clearing</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Subjects</h3>
+                    <p>Math, Science, English, and exam preparation.</p>
+                </div>
+            </aside>
+        </section>
+        <section class="section" id="programs">
+            <span class="tag">Programs</span>
+            <h2 class="section-title">Learning support for every stage</h2>
+            <p>Primary tuition, secondary coaching, and test preparation in one simple layout.</p>
+            <div class="grid">
+                <div class="box"><h3>Primary</h3><p>Basics, reading, writing, homework help.</p></div>
+                <div class="box"><h3>Secondary</h3><p>Subject-wise classes and board exam support.</p></div>
+                <div class="box"><h3>Tests</h3><p>Mock tests, revision, and doubt solving.</p></div>
+            </div>
+            <div class="grid" style="margin-top:10px;" id="contact">
+                <div class="box"><h3>Schedule</h3><p>Mon to Fri classes with weekend revision.</p></div>
+                <div class="box"><h3>Contact</h3><p>Call for admission on:9876543210</p></div>
+                <div class="box"><h3>Focus</h3><p>Clear teaching with small batches and care.</p></div>
+            </div>
+        </section>
+        <footer>Impact Tuition Classes | Learning with discipline, confidence, and care.</footer>
+    </main>
+</body>
+</html>
