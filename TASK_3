@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        :root{
+            color-scheme:light
+        } 
+        *{
+        box-sizing:BORDER-BOX;
+        }
+        body{
+            font-family:system-ui,sans-serif;
+            display:grid;
+            place-items:center;
+            min-height:100vh;
+            margin:0;
+            background:#f1f5f1;
+            color:#1f2937
+        }
+        .card{
+            width:min(440px,92vw);
+            padding:24px;
+            border-radius:18px;
+            background:#fff;
+            box-shadow:0 10px 30px rgba(5, 5, 5, 0.1)
+        }
+        .title{
+            margin:0 0 16px
+        } 
+        form,.field,.units{
+            display:grid;
+            gap:16px
+        }
+        label{
+            font-weight:600
+        }
+        input,button{
+            width:100%;
+            padding:12px;
+            font:inherit;
+            border:1px solid #080808;
+            border-radius:10px
+        }
+        .unit-row{
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap}
+        .unit-row label{
+            font-weight:400;
+            display:flex;
+            align-items:center;
+            gap:6px}
+        button{
+            border:0;
+            background:#1f6feb;
+            color:#fff;
+            cursor:pointer;
+            font-weight:600
+        }
+         button:hover{
+            background:#1a5fd0
+        }
+        #result{
+            margin-top:16px;
+            font-size:1.05rem;
+            font-weight:600;
+            min-height:1.5em
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="title">Temperature Converter</h1>
+        <form id="converterForm">
+            <div class="field">
+                <label for="temp">Temperature</label>
+                <input id="temp" type="number" step="any" placeholder="Enter a number" >
+            </div>
+            <div class="units">
+                <label>Input unit</label>
+                <div class="unit-row" aria-label="Temperature unit">
+                    <label><input type="radio" name="unit" value="C" checked> Celsius</label>
+                    <label><input type="radio" name="unit" value="F"> Fahrenheit</label>
+                    <label><input type="radio" name="unit" value="K"> Kelvin</label>
+                </div>
+            </div>
+            <button type="submit">Convert</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        const form = document.getElementById('converterForm'),
+        temp = document.getElementById('temp'), 
+        result = document.getElementById('result');
+        const toCelsius = (value, unit) => unit === 'F' ? (value - 32) * 5 / 9 : unit === 'K' ? value - 273.15 : value;
+        form.addEventListener
+        ('submit', event => {
+            event.preventDefault();
+            const value = Number(temp.value), 
+            unit = document.querySelector('input[name="unit"]:checked').value;
+            if (temp.value === '' || Number.isNaN(value)) 
+            return result.textContent = 'Please enter a valid number.';
+            const c = toCelsius(value, unit), 
+            f = (c * 9 / 5 + 32).toFixed(2),
+            k = (c + 273.15).toFixed(2), 
+            cText = c.toFixed(2);
+            result.textContent = unit === 'C' ? `Converted: ${f} °F / ${k} K` : unit ===
+            'F' ? `Converted: ${cText} °C / ${k} K` : `Converted: ${cText} °C / ${f} °F`;
+        });
+    </script>
+</body>
+</html>
